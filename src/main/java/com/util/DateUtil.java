@@ -264,6 +264,6 @@ public class DateUtil {
 		Date now = new Date();
 		System.out.println(DateUtil.date2Str(now, DateUtil.FORMAT_YYYY));
 		System.out.println(DateUtil.date2Str(DateUtil.addYear(now, -1), DateUtil.FORMAT_YYYY));
-		
+		System.out.println("ok");
 	}
 }
