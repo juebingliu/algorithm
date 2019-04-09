@@ -184,4 +184,17 @@ public class Function {
         return mid;
     }
 
+    /**
+     * 最长回文子串
+     * @param s
+     * @return
+     */
+    public String longestPalindrome(String s) {
+        char[] ch = s.toCharArray();
+        int length = 0;
+        for (int i=0; i<ch.length; i++) {
+            
+        }
+        return null;
+    }
 }
