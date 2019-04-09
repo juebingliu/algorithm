@@ -1,5 +1,10 @@
 package com.leetcode;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+
 /**
  * @author juebing
  * @version v1.0
@@ -35,7 +40,7 @@ public class Function {
         return null;
     }
 
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
@@ -67,26 +72,116 @@ public class Function {
      * @param l2
      * @return
      */
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-       ListNode p = l1;
-       ListNode q = l2;
-       ListNode node = new ListNode(0);
-       ListNode cur = node;
-       int flag = 0;
-       while (p!=null || q!=null) {
-           int va1 = (p!=null)?p.val:0;
-           int va2 = (q!=null)?q.val:0;
-           int sum = va1 + va2;
-           cur.next = new ListNode(sum + flag -10);
-           flag = sum / 10;
-           cur = cur.next;
-           if(p !=null) {p = p.next;}
-           if(q !=null) {q = q.next;}
-       }
-       if (flag > 0) {
-           cur.next = new ListNode(flag);
-       }
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode p = l1;
+        ListNode q = l2;
+        ListNode node = new ListNode(0);
+        ListNode cur = node;
+        int flag = 0;
+        while (p != null || q != null) {
+            int va1 = (p != null) ? p.val : 0;
+            int va2 = (q != null) ? q.val : 0;
+            int sum = va1 + va2;
+            cur.next = new ListNode(sum + flag - 10);
+            flag = sum / 10;
+            cur = cur.next;
+            if (p != null) {
+                p = p.next;
+            }
+            if (q != null) {
+                q = q.next;
+            }
+        }
+        if (flag > 0) {
+            cur.next = new ListNode(flag);
+        }
 
-       return node.next;
+        return node.next;
     }
+
+    /**
+     * 最长子串
+     *
+     * @param s
+     * @return
+     */
+    public static int lengthOfLongestSubstring(String s) {
+        char[] ch = s.toCharArray();
+        int length = 0;
+        StringBuffer sb = new StringBuffer();
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < ch.length; i++) {
+            String key = String.valueOf(ch[i]);
+            if (map.containsKey(key)) {
+                int index = sb.indexOf(key);
+                sb.append(key);
+                sb = sb.delete(0, index + 1);
+                map.remove(key);
+                map.put(key, key);
+            } else {
+                map.put(key, key);
+                sb.append(key);
+            }
+            length = Math.max(sb.length(), length);
+        }
+        return length;
+    }
+
+    /**
+     * 寻找两个有序数组的中位数
+     * 堆实现
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        double mid = 0;
+        PriorityQueue<Integer> min = new PriorityQueue<>();
+        PriorityQueue<Integer> max = new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i<nums1.length; i++) {
+            if(mid == 0) {
+                mid = nums1[0];
+                continue;
+            }
+            if(nums1[i] <= mid) {
+                max.add(nums1[i]);
+            }else {
+                min.add(nums1[i]);
+            }
+            if(min.size() - max.size() >= 2) {
+                max.add((int) mid);
+                mid = min.poll();
+            }else if(max.size() - min.size() >= 2) {
+                min.add((int) mid);
+                mid = max.poll();
+            }
+        }
+        for (int i = 0; i<nums2.length; i++) {
+            if(mid == 0) {
+                mid = nums2[0];
+                continue;
+            }
+            if(nums2[i] <= mid) {
+                max.add(nums2[i]);
+            }else {
+                min.add(nums2[i]);
+            }
+            if(min.size() - max.size() >= 2) {
+                max.add((int) mid);
+                mid = min.poll();
+            }else if(max.size() - min.size() >= 2) {
+                min.add((int) mid);
+                mid = max.poll();
+            }
+        }
+        if((nums1.length + nums2.length) %2 ==0) {
+            if(min.size() < max.size()) {
+                mid = (mid + max.poll())/2;
+            }else {
+                mid = (mid + min.poll())/2;
+            }
+        }
+        return mid;
+    }
+
 }
