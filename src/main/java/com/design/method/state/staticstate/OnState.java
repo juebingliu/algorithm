@@ -1,0 +1,15 @@
+package com.design.method.state.staticstate;
+
+/**
+ * Created by juebingliu on 2018/6/13.
+ */
+public class OnState extends State{
+    public void on(Switch s) {
+        System.out.println("已经打开！");
+    }
+
+    public void off(Switch s) {
+        System.out.println("关闭！");
+        s.setState(Switch.getState("off"));
+    }
+}

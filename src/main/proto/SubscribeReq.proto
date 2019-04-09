@@ -1,0 +1,10 @@
+syntax = "proto3";
+option java_package = "com.netty.protobuf.proto";
+option java_outer_classname = "SubscribeReqProto";
+message SubscribeReq {
+    int32 subReqID = 1;
+    string userName = 2;
+    string productName = 3;
+    string phoneNumber = 4;
+    string address = 5;
+}
