@@ -15,8 +15,12 @@ public class Exercise {
 //        String str = "abcabcbbefgh";
 //        System.out.println(Function.lengthOfLongestSubstring(str));
 
-        int[] arr1 = {1,3,5,9,11};
-        int[] arr2 = {2,4,6,7,10};
-        System.out.println(Function.findMedianSortedArrays(arr1,arr2));
+//        int[] arr1 = {1,3,5,9,11};
+//        int[] arr2 = {2,4,6,7,10};
+//        System.out.println(Function.findMedianSortedArrays(arr1,arr2));
+
+        String str1 = "abdfgcgfdsln";
+        String str2 = "sabcbadabb";
+        System.out.println(Function.longestPalindrome2(str2));
     }
 }

@@ -189,12 +189,104 @@ public class Function {
      * @param s
      * @return
      */
-    public String longestPalindrome(String s) {
-        char[] ch = s.toCharArray();
-        int length = 0;
-        for (int i=0; i<ch.length; i++) {
-            
+    public static String longestPalindrome(String s) {
+        if("".equals(s)){
+            return "";
         }
-        return null;
+        int len = s.length();
+        if(len==1){
+            return s;
+        }
+        int sLength=1;
+        int start = 0;
+        int[][] db = new int[len][len];
+        for(int i=0;i<len;i++){//定义初始化状态
+            db[i][i]=1;
+            if(i<len-1&&s.charAt(i)==s.charAt(i+1)){
+                db[i][i+1] = 1;
+                sLength=2;
+                start = i;
+            }
+        }
+        for(int i=3;i<=len;i++){
+            for(int j=0;j+i-1<len;j++){
+                int end = j+i-1;
+                if(s.charAt(j)==s.charAt(end)){
+                    db[j][end]=db[j+1][end-1];
+                    if(db[j][end]==1){
+                        start=j;
+                        sLength = i;
+                    }
+                }
+            }
+        }
+        return s.substring(start,start+sLength);
+    }
+
+    // Transform S into T.
+    // For example, S = "abba", T = "^#a#b#b#a#$".
+    // ^ and $ signs are sentinels appended to each end to avoid bounds checking
+    static String preProcess(String s) {
+        int n = s.length();
+        if (n == 0) {return "^$";}
+
+        String ret = "^";
+        for (int i = 0; i < n; i++)
+        {
+            ret += "#" + s.substring(i, i + 1);
+        }
+
+        ret += "#$";
+        return ret;
+    }
+
+    /**
+     * 马拉车算法
+     * @param s
+     * @return
+     */
+    public static String longestPalindrome2(String s) {
+        String T = preProcess(s);
+        int length = T.length();
+        int[] p = new int[length];
+        int C = 0, R = 0;
+
+        for (int i = 1; i < length - 1; i++)
+        {
+            int i_mirror = C - (i - C);
+            int diff = R - i;
+            if (diff >= 0)//当前i在C和R之间，可以利用回文的对称属性
+            {
+                if (p[i_mirror] < diff)//i的对称点的回文长度在C的大回文范围内部
+                { p[i] = p[i_mirror]; }
+                else
+                {
+                    p[i] = diff;
+                    //i处的回文可能超出C的大回文范围了
+                    while (T.charAt(i + p[i] + 1) == T.charAt(i - p[i] - 1))
+                    { p[i]++; }
+                    C = i;
+                    R = i + p[i];
+                }
+            }
+            else
+            {
+                p[i] = 0;
+                while (T.charAt(i + p[i] + 1) == T.charAt(i - p[i] - 1))
+                { p[i]++; }
+                C = i;
+                R = i + p[i];
+            }
+        }
+
+        int maxLen = 0;
+        int centerIndex = 0;
+        for (int i = 1; i < length - 1; i++) {
+            if (p[i] > maxLen) {
+                maxLen = p[i];
+                centerIndex = i;
+            }
+        }
+        return s.substring((centerIndex - 1 - maxLen) / 2, (centerIndex - 1 - maxLen) / 2 + maxLen);
     }
 }
