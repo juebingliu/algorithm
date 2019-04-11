@@ -289,4 +289,28 @@ public class Function {
         }
         return s.substring((centerIndex - 1 - maxLen) / 2, (centerIndex - 1 - maxLen) / 2 + maxLen);
     }
+
+    /**
+     * Z字形变换:先按列处理，再处理斜向数字
+     * @param s
+     * @param numRows
+     * @return
+     */
+    public static String convert(String s,int numRows) {
+        if(numRows == 1) {
+            return s;
+        }
+        int interval = 2*numRows - 2;
+        int size = s.length();
+        StringBuffer sb = new StringBuffer();
+        for (int i=0; i<numRows; i++) {
+            for (int j=0; j + i<size; j+=interval) {
+                sb.append(s.charAt(i+j));
+                if(i!=0 && i!= numRows-1 && j+interval - i < size) {
+                    sb.append(s.charAt(j+interval - i));
+                }
+            }
+        }
+        return sb.toString();
+    }
 }
