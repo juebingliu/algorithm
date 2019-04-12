@@ -23,6 +23,10 @@ public class Exercise {
 //        String str2 = "sabcbadabb";
 //        System.out.println(Function.longestPalindrome2(str2));
 
-        System.out.println(Function.convert("LEETCODEISHIRING",4));
+//        System.out.println(Function.convert("LEETCODEISHIRING",4));
+
+//        System.out.println(Function.reverse(-2147483648));
+
+        System.out.println(Function.myAtoi(".1"));
     }
 }

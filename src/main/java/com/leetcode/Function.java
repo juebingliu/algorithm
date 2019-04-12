@@ -313,4 +313,76 @@ public class Function {
         }
         return sb.toString();
     }
+
+    /**
+     * 整型反转
+     * @param x
+     * @return
+     */
+    public static int reverse(int x) {
+        String str = String.valueOf(x);
+        StringBuffer sb = new StringBuffer();
+        if (x > Integer.MAX_VALUE || x < Integer.MIN_VALUE) {
+            return 0;
+        }
+        if (x == 0) {
+            return 0;
+        }
+        if(x<0) {
+            str = str.substring(1);
+        }
+        for(int i = str.length(); i>0; i--) {
+            sb.append(str.charAt(i-1));
+        }
+        str = sb.toString();
+        if (Long.parseLong(str) > Integer.MAX_VALUE || Long.parseLong(str) < Integer.MIN_VALUE) {
+            return 0;
+        }
+        if(x<0) {
+            return Integer.parseInt("-" + sb.toString().trim());
+        }else {
+            return Integer.parseInt(sb.toString().trim());
+        }
+    }
+
+    /**
+     * 字符串转换整数
+     * @param str
+     * @return
+     */
+    public static int myAtoi(String str) {
+        char[] arr = str.toCharArray();
+        int index = 0;
+        int t = 0, sign = 1;
+        boolean start = true;
+
+        while (index < arr.length) {
+            if (start) {
+                if (arr[index] == ' ') {
+                    index++;
+                    continue;
+                }
+                // '+', '-' ASCII值为43,45
+                if (arr[index] == 43 || arr[index] == 45) {
+                    start = false;
+                    sign = 44 - arr[index];
+                    index++;
+                    continue;
+                }
+            }
+            //'0'-'9'的ASCII值
+            if (arr[index] < 48 || arr[index] > 57) {
+                return t * sign;
+            }
+            start = false;
+            int r = t * 10 + (arr[index] - '0');
+            //溢出时r会是另一个数
+            if (r / 10 != t) {
+                return sign == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            }
+            t = r;
+            index++;
+        }
+        return t * sign;
+    }
 }
