@@ -385,4 +385,48 @@ public class Function {
         }
         return t * sign;
     }
+
+    /**
+     * 判断是否是回文数
+     * @param x
+     * @return
+     */
+    public static boolean isPalindrome(int x) {
+        if(x<0) {
+            return false;
+        }
+        if(x == 0) {
+            return true;
+        }
+        StringBuilder sb = new StringBuilder();
+        String str = String.valueOf(x);
+        char[] ch = str.toCharArray();
+        for (int i=str.length()-1; i>=0; i--) {
+            ch[i] = str.charAt(i);
+            sb.append(ch[i]);
+        }
+        if(str.equals(sb.toString())) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+
+    /**
+     * 正则表达式匹配
+     * @param s
+     * @param p
+     * @return
+     */
+    public boolean isMatch(String s, String p) {
+        if(".*".equals(p)) {
+            return true;
+        }else if(!s.equals(p)) {
+            return false;
+        }else {
+            
+        }
+        return false;
+    }
 }

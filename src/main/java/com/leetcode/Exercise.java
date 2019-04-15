@@ -27,6 +27,10 @@ public class Exercise {
 
 //        System.out.println(Function.reverse(-2147483648));
 
-        System.out.println(Function.myAtoi(".1"));
+//        System.out.println(Function.myAtoi(".1"));
+
+//        System.out.println(Function.isPalindrome(121));
+
+        System.out.println("aaaaa".matches("a*"));
     }
 }
