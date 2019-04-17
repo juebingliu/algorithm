@@ -1,0 +1,24 @@
+lambda&stream
+1、函数式编程(值)(行为参数化)(无状态)(并行).
+    1.0、类&类型参数化->泛型.
+    1.1、行为参数化->predicate,谓词.
+    1.2、匿名函数.
+    1.3、lambda,(parameters) -> (expression) or (parameters) -> { statement },(函数签名).
+    1.4、c#&scala.
+    1.5、函数式接口(接口中有一个抽象方法)(@FunctionalInterface).
+    1.6、Predicate<T>,Consumer<T>,Supplier<T>,Function<T,R>
+    1.7、类型推断&局部变量捕获一次.
+    1.8、方法引用::&&复合引用&&流水线.
+    
+2、stream&并行.
+    2.1、从支持数据处理操作的源生成的元素序列(集合、数组或输入/输出资源)(有序).
+    2.2、集合&流,实时创建&延迟创建.
+    2.3、流水线&内部迭代.
+    2.4、中间操作&终端操作.
+    2.5、筛选(filter,distinct,limit,skip)、切片、映射(map,flatMap-拆分&合并)、查找、匹配(allMatch、anyMatch、noneMatch、findFirst和findAny)和归约(reduce).
+    2.6、有状态操作(reduce,sorted,distinct)&无状态操作(filter,map)
+    2.7、数值->流(装箱boxed,拆箱mapToxxx,OptionalXXX,range/rangeClose),Arrays.stream()
+    2.8、文件->流,Files.line(Path)
+    2.9、函数->流(Stream.iterate & Stream.generate ,避免装箱IntSupplier)
+    2.10、收集器(Collector)(sunming,summarizing,averaging)(joining 连接字符串)
+3、Optional<T>避免空指针.
