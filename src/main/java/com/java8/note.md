@@ -21,4 +21,5 @@ lambda&stream
     2.8、文件->流,Files.line(Path)
     2.9、函数->流(Stream.iterate & Stream.generate ,避免装箱IntSupplier)
     2.10、收集器(Collector)(sunming,summarizing,averaging)(joining 连接字符串)
+    2.11、reducing某种程度上来说相当于收集器,但性能不如收集器,收集器嵌套使用
 3、Optional<T>避免空指针.

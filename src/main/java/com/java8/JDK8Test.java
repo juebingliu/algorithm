@@ -2,6 +2,7 @@ package com.java8;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -122,17 +123,31 @@ public class JDK8Test {
 //                .limit(5)
 //                .forEach(System.out::println);
 
+        //连接
         System.out.println(JDK8Test.createList().stream().map(Apple::getColor).collect(Collectors.joining(",")));
+        //分组,可以是枚举
+        Map<String,List<Apple>> map1 = JDK8Test.createList().stream().collect(Collectors.groupingBy(Apple::getColor));
+        //多级分组
+        Map<String,Map<String,List<Apple>>> map2 = JDK8Test.createList()
+                .stream()
+                .collect(Collectors.groupingBy(Apple::getColor,
+                        Collectors.groupingBy((Apple a) -> {if(a.getWeight() > 3) return "big"; else return "small";})));
+
+        JDK8Test.createList().stream().collect(Collectors.groupingBy(Apple::getColor,Collectors.counting()));
     }
 
     public static List<Apple> createList() {
         Apple a1 = new Apple("red",1);
         Apple a2 = new Apple("green",2);
         Apple a3 = new Apple("blue",3);
+        Apple a4 = new Apple("blue",5);
+        Apple a5 = new Apple("green",8);
         List<Apple> list = new ArrayList<>();
         list.add(a1);
         list.add(a2);
         list.add(a3);
+        list.add(a4);
+        list.add(a5);
         return list;
     }
 
