@@ -2,8 +2,6 @@ package com.java8;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author juebing
@@ -124,16 +122,38 @@ public class JDK8Test {
 //                .forEach(System.out::println);
 
         //连接
-        System.out.println(JDK8Test.createList().stream().map(Apple::getColor).collect(Collectors.joining(",")));
+//        System.out.println(JDK8Test.createList().stream().map(Apple::getColor).collect(Collectors.joining(",")));
         //分组,可以是枚举
-        Map<String,List<Apple>> map1 = JDK8Test.createList().stream().collect(Collectors.groupingBy(Apple::getColor));
+//        Map<String,List<Apple>> map1 = JDK8Test.createList().stream().collect(Collectors.groupingBy(Apple::getColor));
         //多级分组
-        Map<String,Map<String,List<Apple>>> map2 = JDK8Test.createList()
-                .stream()
-                .collect(Collectors.groupingBy(Apple::getColor,
-                        Collectors.groupingBy((Apple a) -> {if(a.getWeight() > 3) return "big"; else return "small";})));
+//        Map<String,Map<String,List<Apple>>> map2 = JDK8Test.createList()
+//                .stream()
+//                .collect(Collectors.groupingBy(Apple::getColor,
+//                        Collectors.groupingBy((Apple a) -> {if(a.getWeight() > 3) return "big"; else return "small";})));
 
-        JDK8Test.createList().stream().collect(Collectors.groupingBy(Apple::getColor,Collectors.counting()));
+//        JDK8Test.createList().stream().collect(Collectors.groupingBy(Apple::getColor,Collectors.counting()));
+
+        //分区
+//        Map<Boolean,Long> map = JDK8Test.createList().stream().collect(Collectors.partitioningBy((Apple a) -> a.getWeight()>3,Collectors.counting()));
+
+        //质数分区
+//        IntStream.rangeClosed(2,1000).boxed().collect(
+//                Collectors.partitioningBy(i ->
+//                    IntStream.rangeClosed(2, (int) Math.sqrt(i)).noneMatch(ii -> ii % i ==0)
+//                )
+//        );
+
+        //优化质数分区
+//        IntStream.rangeClosed(2, 1000).boxed()
+//                .collect(new NumbersCollector());
+
+        //并行求和
+//        Stream.iterate(1L, i->i+1)
+//                .limit(10000000)
+//                .parallel()
+//                .reduce(Long::sum);
+        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","12");
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
     public static List<Apple> createList() {
