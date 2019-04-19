@@ -29,8 +29,10 @@ public class NumberSum {
 //        System.out.println("paralle-opt:" + NumberSum.test(NumberSum::parallelSum2,10_000_000) + "ms");
 
         //共享状态
-        System.out.println("share:" + NumberSum.test(NumberSum::sideEffectSum,10_000_000) + "ms");
+//        System.out.println("share:" + NumberSum.test(NumberSum::sideEffectSum,10_000_000) + "ms");
 
+        //分支&合并
+        System.out.println("fork&join:" +NumberSum.test(SumCalculator::sumParrell,10_000_000) + "ms");
     }
 
     //串行归纳
