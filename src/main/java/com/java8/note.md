@@ -38,5 +38,5 @@ lambda&stream
         3.7.2、合并
         3.7.3、优化类比并行流
         3.7.4、工作窃取
-    3.8、Spliterator自动分块机制
+    3.8、Spliterator
 3、Optional<T>避免空指针.

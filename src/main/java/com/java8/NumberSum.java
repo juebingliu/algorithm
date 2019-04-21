@@ -95,4 +95,5 @@ public class NumberSum {
         public long total = 0;
         public void add(long value) { total += value; }
     }
+
 }

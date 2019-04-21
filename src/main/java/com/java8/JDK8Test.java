@@ -152,8 +152,10 @@ public class JDK8Test {
 //                .limit(10000000)
 //                .parallel()
 //                .reduce(Long::sum);
-        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","12");
-        System.out.println(Runtime.getRuntime().availableProcessors());
+
+        //显示声明并行流线程池
+//        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","12");
+//        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
     public static List<Apple> createList() {
