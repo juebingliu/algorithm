@@ -8,7 +8,7 @@ import java.util.stream.Stream;
  * @author juebing
  * @version v1.0
  * @date 2019/4/18 18:58
- * @description 求和 - (i5-4c-2.2g)
+ * @description 求和 - (i5-4c-2.2gHz)
  */
 public class NumberSum {
 

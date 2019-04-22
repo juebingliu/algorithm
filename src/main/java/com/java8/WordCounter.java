@@ -1,7 +1,8 @@
 package com.java8;
 
-import java.util.stream.IntStream;
+import java.util.Spliterator;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /**
  * @author juebing
@@ -64,10 +65,17 @@ public class WordCounter {
     }
 
     public static void main(String[] args) {
-        Stream<Character> stream = IntStream.range(0,WordCounter.SENTENCE.length())
-                                            .mapToObj(WordCounter.SENTENCE::charAt);
-        System.out.println("count:" + WordCounter.countWordsByStream(stream));
+//        Stream<Character> stream = IntStream.range(0,WordCounter.SENTENCE.length()).mapToObj(WordCounter.SENTENCE::charAt);
+
+        //顺序流
+//        System.out.println("count:" + WordCounter.countWordsByStream(stream));
+
         //并行流
 //        System.out.println("count:" + WordCounter.countWordsByStream(stream.parallel()));
+
+        //自定义Spliterator,处理并行流
+        Spliterator<Character> spliterator = new WordCounterSpliterator(WordCounter.SENTENCE);
+        Stream<Character> stream1 = StreamSupport.stream(spliterator,true);
+        System.out.println("count:" + WordCounter.countWordsByStream(stream1));
     }
 }

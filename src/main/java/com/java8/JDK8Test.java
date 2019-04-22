@@ -88,6 +88,7 @@ public class JDK8Test {
 //        System.out.println(numbers.stream().reduce(0,Integer::sum));
 //        System.out.println(numbers.stream().reduce(Integer::sum).get());
 //        System.out.println(JDK8Test.createList().stream().mapToInt(Apple::getWeight).sum());
+//        System.out.println(JDK8Test.createList().stream().collect(Collectors.summingInt(Apple::getWeight)));
 
         //数值流
 //        IntStream.rangeClosed(1,100).boxed()
