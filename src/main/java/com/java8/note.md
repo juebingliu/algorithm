@@ -42,8 +42,10 @@ lambda&stream
         3.8.1、出口(不在拆分)
         3.8.2、并行流创建形式
         3.8.3、延迟绑定(流数据源)
-3、Optional<T>避免空指针.
-
+        
 番外:
-    优化与可读性,设计模式
-    劣势:debug,流水线每一步peek
+    函数式编程优化与可读性,设计模式改进,劣势:debug,改造->流水线每一步peek
+    Optional<T>
+    CompletableFuture,与并行流比较,异步流水线(thenCompose/thenComposeAsync,thenCombine/thenCombineAsync,thenAccept/thenAcceptAsync)
+    
+
