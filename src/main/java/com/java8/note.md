@@ -9,7 +9,9 @@ lambda&stream
     1.6、Predicate<T>,Consumer<T>,Supplier<T>,Function<T,R>
     1.7、类型推断&局部变量捕获一次.
     1.8、方法引用::&&复合引用&&流水线.
-    
+    1.9、命令式编程&函数式编程
+    1.10、引用透明性
+        
 2、stream.
     2.1、从支持数据处理操作的源生成的元素序列(集合、数组或输入/输出资源)(有序).
     2.2、集合&流,实时创建&延迟创建.
@@ -47,5 +49,6 @@ lambda&stream
     函数式编程优化与可读性,设计模式改进,劣势:debug,改造->流水线每一步peek
     Optional<T>
     CompletableFuture,与并行流比较,异步流水线(thenCompose/thenComposeAsync,thenCombine/thenCombineAsync,thenAccept/thenAcceptAsync)
+    同一个流上并发操作
     
 
