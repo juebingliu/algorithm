@@ -1,16 +1,16 @@
 lambda&stream
 1、函数式编程(值)(行为参数化)(无状态)(并行).
-    1.0、类&类型参数化->泛型.
-    1.1、行为参数化->predicate,谓词.
-    1.2、匿名函数.
-    1.3、lambda,(parameters) -> (expression) or (parameters) -> { statement },(函数签名).
-    1.4、c#&scala.
-    1.5、函数式接口(接口中有一个抽象方法)(@FunctionalInterface).
-    1.6、Predicate<T>,Consumer<T>,Supplier<T>,Function<T,R>
-    1.7、类型推断&局部变量捕获一次.
-    1.8、方法引用::&&复合引用&&流水线.
-    1.9、命令式编程&函数式编程
-    1.10、引用透明性
+    1.1、类&类型参数化->泛型.
+    1.2、行为参数化->predicate,谓词.
+    1.3、匿名函数.
+    1.4、lambda,(parameters) -> (expression) or (parameters) -> { statement },(函数签名).
+    1.5、c#&scala.
+    1.6、函数式接口(接口中有一个抽象方法)(@FunctionalInterface).
+    1.7、Predicate<T>,Consumer<T>,Supplier<T>,Function<T,R>
+    1.8、类型推断&局部变量捕获一次.
+    1.9、方法引用::&&复合引用&&流水线.
+    1.10、命令式编程&函数式编程
+    1.11、引用透明性
         
 2、stream.
     2.1、从支持数据处理操作的源生成的元素序列(集合、数组或输入/输出资源)(有序).
@@ -36,7 +36,7 @@ lambda&stream
     3.5、共享状态
     3.6、优化-原始类型流,考虑操作本身性能(有序),单个元素通过流水线的粗略成本(高),数据量,快速分块,中间操作&终端操作(combiner)
     3.7、fork&join
-        3.7.1、RecursiveTask<R>-拆分子任务(分治)(递归)
+        3.7.1、RecursiveTask<R>-拆分子任务(递归)
         3.7.2、合并
         3.7.3、优化类比并行流
         3.7.4、工作窃取
