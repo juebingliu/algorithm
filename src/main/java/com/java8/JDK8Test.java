@@ -157,6 +157,15 @@ public class JDK8Test {
         //显示声明并行流线程池
 //        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","12");
 //        System.out.println(Runtime.getRuntime().availableProcessors());
+
+        //peek
+//        JDK8Test.createList().stream()
+//                .peek(a -> System.out.println("start: " + a.getWeight()))
+//                .filter(a -> a.getWeight()>1)
+//                .peek(a -> System.out.println("filter: " + a.getWeight()))
+//                .sorted(Comparator.comparing(Apple::getWeight).reversed())
+//                .map(Apple::getColor)
+//                .collect(Collectors.toList());
     }
 
     public static List<Apple> createList() {
