@@ -126,6 +126,13 @@
             <version>2.5</version>
         </dependency>
 
+        <!-- guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>25.0-jre</version>
+        </dependency>
+
     </dependencies>
     <build>
         <extensions>
