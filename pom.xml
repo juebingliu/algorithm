@@ -133,6 +133,13 @@
             <version>25.0-jre</version>
         </dependency>
 
+        <!-- thrift -->
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.12.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <extensions>
@@ -206,6 +213,34 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- thrift插件 -->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.thrift.tools</groupId>-->
+                <!--<artifactId>maven-thrift-plugin</artifactId>-->
+                <!--<version>0.1.11</version>-->
+                <!--<configuration>-->
+                    <!--<thriftExecutable>D:/java/Thrift</thriftExecutable>-->
+                    <!--<thriftSourceRoot>src/main/java/com/thrift</thriftSourceRoot>-->
+                    <!--&lt;!&ndash;<outputDirectory>src/main/java/com/service</outputDirectory>&ndash;&gt;-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>thrift-sources</id>-->
+                        <!--<phase>generate-sources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>compile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                    <!--&lt;!&ndash;<execution>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<id>thrift-test-sources</id>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<phase>generate-test-sources</phase>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<goals>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<goal>testCompile</goal>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</goals>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</execution>&ndash;&gt;-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 
