@@ -11,3 +11,7 @@ ACID，CAP，BASE
 另外，通过对比Log4j 2 和Log4j 、Logback 等，我们发现它们在异步记录日志功能方面的
 差异。异步Appender 的性能随着线程数的增加基本保持不变，而Log4j 2 的异步Logger 随着线
 程数的增加其吞吐量也持续增加，在多核CPU 系统中能够达到更好的性能。
+
+常见日志采集器：logstash，Fluentd，Flume，scribe，Rsyslog
+
+时间路由方式
