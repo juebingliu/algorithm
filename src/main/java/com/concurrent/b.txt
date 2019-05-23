@@ -14,3 +14,7 @@
 --7、原子类型atomic，多个原子类型进行写操作需要保持一致性
 
 --8、用锁来保护状态(同一个锁)
+
+--9、线程的几种状态：NEW、RUNNABLE、BLOCKED、WAITING、TIMED_WAITING、TERMINATED
+
+--10、sleep睡眠期间，线程可以被中断，如果被中断会抛出InterruptedException；yield方法让出cpu，使其他线程执行；join方法可以让调用join的线程等待某一线程结束时才执行，join(0)表示无限期等待
