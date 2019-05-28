@@ -21,5 +21,6 @@ public class ConcurrentTest {
         Thread t = new Thread(r);
         t.start();
         System.out.println(Thread.currentThread().getName()+" "+Thread.currentThread().getId());
+        System.out.println(Thread.currentThread().isInterrupted());
     }
 }
