@@ -2,6 +2,9 @@ package com.java8;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author juebing
@@ -138,11 +141,12 @@ public class JDK8Test {
 //        Map<Boolean,Long> map = JDK8Test.createList().stream().collect(Collectors.partitioningBy((Apple a) -> a.getWeight()>3,Collectors.counting()));
 
         //质数分区
-//        IntStream.rangeClosed(2,1000).boxed().collect(
-//                Collectors.partitioningBy(i ->
-//                    IntStream.rangeClosed(2, (int) Math.sqrt(i)).noneMatch(ii -> ii % i ==0)
-//                )
-//        );
+        Map map = IntStream.rangeClosed(2,20).boxed().collect(
+                Collectors.partitioningBy(i ->
+                    IntStream.rangeClosed(2, (int) Math.sqrt(i)).noneMatch(ii -> i % ii ==0)
+                )
+        );
+        System.out.println(map.toString());
 
         //优化质数分区
 //        IntStream.rangeClosed(2, 1000).boxed()
